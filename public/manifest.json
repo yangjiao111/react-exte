@@ -1,25 +1,55 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "name": "模仿的插件", //插件的名称
+  "version": "1.0", //插件的版本号
+  "description": "React开发chrome插件", //插件的描述
+  "icons": { //浏览器扩展列表的图标
+    "16": "images/logo.png",
+    "48": "images/logo.png",
+    "128": "images/logo.png"
+  },
+  "manifest_version": 2, //清单文件格式的版本，根据浏览器的版本进行设定，chrome18之后这个值就是2
+  // "page_action": {
+  //   "default_icon": "images/wallet.png",
+  //   "default_title": "React CRX",
+  //   "default_popup": "index.html"
+  // },
+  "browser_action":{
+    "default_icon":"images/wallet.png",
+    "default_popup":"index.html"
+  },
+  // browser actions，这样的Google Chrome扩展可以适用于任何页面。图标往往位于浏览器地址栏外右侧。点击图标将弹出窗口。
+  // page actions，这样的Google Chrome扩展只能作用于某一页面，当打开该页面时触发该Google Chrome扩展，关闭页面则Google Chrome扩展也随之消失。图标往往位于浏览器地址栏内右端。
+  "background": { //运行一些后台脚本的时候，比如监听用户的操作
+    "scripts": [
+      "static/js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [ //像页面注入脚本
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "matches": [ //匹配网址的正则列表
+        "<all_urls>",
+        "*://*.baidu.com/*"
+      ],
+      "css": [
+        "static/css/content.css"
+      ],
+      "js": [ //需要注入的脚本文件列表
+        "static/js/content.js"
+      ],
+      "run_at": "document_end" //选择注入js的时机
+      // document_start：所有css加载完毕，但DOM尚未创建时
+      // document_end：DOM创建完成，但图片及frame等子资源尚未加载时
+      // document_idle：document_end之后，window.onload之前
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "permissions": [ //像浏览器申请我们的插件对应的权限
+    "tabs",
+    "declarativeContent",
+    "storage",
+    "notifications"
+  ],
+  "web_accessible_resources": [
+    "insert.js"
+  ] //指定资源路径
 }
