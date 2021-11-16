@@ -21,7 +21,7 @@
   // page actions，这样的Google Chrome扩展只能作用于某一页面，当打开该页面时触发该Google Chrome扩展，关闭页面则Google Chrome扩展也随之消失。图标往往位于浏览器地址栏内右端。
   "background": { //运行一些后台脚本的时候，比如监听用户的操作
     "scripts": [
-      //"browser-polyfill.js",
+      "browser-polyfill.js",
       "static/js/background.js"
     ],
     "persistent": false
@@ -36,6 +36,7 @@
         "static/css/content.css"
       ],
       "js": [ //需要注入的脚本文件列表
+        "browser-polyfill.js",
         "static/js/content.js"
       ],
       "run_at": "document_end" //选择注入js的时机
