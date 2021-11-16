@@ -148,5 +148,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "webextension-polyfill": "^0.8.0"
   }
 }

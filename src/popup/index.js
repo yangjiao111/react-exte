@@ -8,8 +8,9 @@ function Popup() {
         <Fragment>
             <Router>
                 <Routes>
-                    <Route path="/login" element={<Login />} />
                     <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/home" element={<Home />} />
                 </Routes>
             </Router>
         </Fragment>

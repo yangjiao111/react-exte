@@ -8,19 +8,20 @@
     "128": "images/logo.png"
   },
   "manifest_version": 2, //清单文件格式的版本，根据浏览器的版本进行设定，chrome18之后这个值就是2
-  // "page_action": {
-  //   "default_icon": "images/wallet.png",
-  //   "default_title": "React CRX",
-  //   "default_popup": "index.html"
-  // },
-  "browser_action":{
-    "default_icon":"images/wallet.png",
-    "default_popup":"index.html"
+  "page_action": {
+    "default_icon": "images/wallet.png",
+    "default_title": "React CRX",
+    "default_popup": "index.html"
   },
+  // "browser_action":{
+  //   "default_icon":"images/wallet.png",
+  //   "default_popup":"index.html"
+  // },
   // browser actions，这样的Google Chrome扩展可以适用于任何页面。图标往往位于浏览器地址栏外右侧。点击图标将弹出窗口。
   // page actions，这样的Google Chrome扩展只能作用于某一页面，当打开该页面时触发该Google Chrome扩展，关闭页面则Google Chrome扩展也随之消失。图标往往位于浏览器地址栏内右端。
   "background": { //运行一些后台脚本的时候，比如监听用户的操作
     "scripts": [
+      //"browser-polyfill.js",
       "static/js/background.js"
     ],
     "persistent": false
