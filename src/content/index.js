@@ -1,7 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+//import browser from 'webextension-polyfill';
+import './index.css';
+/*global chrome*/
 function Content() {
+  // const goToPage =()=> {
+  //   let newUrl = "https://www.opera.com/zh-cn?utm_campaign=%2300%20-%20WW%20-%20Search%20-%20EN%20-%20Branded&gclid=Cj0KCQiAys2MBhDOARIsAFf1D1c3O4rlDgDfiACBEKmllzqeTS1ZutDHQ7A1wyA7I-EG6VxNb0adW98aAm4JEALw_wcB";
+  //   browser.tabs.create({url:newUrl});
+  // }
+  
   return (
     <div className="content">
       Content

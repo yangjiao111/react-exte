@@ -333,9 +333,9 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         //避免使用相对路径的麻烦，设置路径别名,使用@直接定位到项目的src目录
         '@':path.join(__dirname,'..','src'),
-        'webextension-polyfill-ts': path.resolve(
-          path.join(__dirname, 'node_modules', 'webextension-polyfill')
-        ),
+        // 'webextension-polyfill': path.resolve(
+        //   path.join(__dirname, 'node_modules', 'webextension-polyfill')
+        // ),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

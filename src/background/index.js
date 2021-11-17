@@ -3,13 +3,13 @@
 // chrome.tabs.query({currentWindow:true,url:"https://www.baidu.com/"},function(tabs){
 //   chrome.pageAction.show(tabs[0].id);
 // })
-var browser = require("webextension-polyfill");
-// Tabs.query({currentWindow:true,url:"https://www.baidu.com/"},function(tabs){
-//   browser.pageAction.show(tabs[0].id);
-// })
-alert(browser.browserAction);
-browser.browserAction.setBadgeText({text: "1234"});
-browser.browserAction.setBadgeBackgroundColor({color: "red"});
+import browser from 'webextension-polyfill';
+browser.notifications.create({
+  type: "basic",
+  iconUrl: "./images/logo.png",
+  title: "Tabs reloaded",
+  message: "Your tabs have been reloaded",
+});
 chrome.runtime.onInstalled.addListener(function () {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
       chrome.declarativeContent.onPageChanged.addRules([{
