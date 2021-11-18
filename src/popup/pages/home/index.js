@@ -1,10 +1,15 @@
 import React from 'react'
  import { Link,useNavigate} from 'react-router-dom';
+ import cookie from 'react-cookies';
 function Home(props) {
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
   const loginIn = () => {
     console.log('jump');
-    navigate("/login", { state: "1998" })
+    
+cookie.save('userId', "123");
+console.log(cookie.load('user'));
+
+   // navigate("/login", { state: "1998" })
 	}
   return (
     <div className="App">
