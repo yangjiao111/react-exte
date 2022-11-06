@@ -27,7 +27,7 @@ try {
     insertScript.setAttribute('type', 'text/javascript')
     insertScript.src = window.chrome.extension.getURL('insert.js')
     document.body.appendChild(insertScript)
-    console.log("???")
+    console.log("???333")
 } catch (err) {}
 
 //browser.runtime.onMessage.addListener()
