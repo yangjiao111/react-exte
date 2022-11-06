@@ -18,7 +18,7 @@ function Content() {
 
 const app = document.createElement('div')
 app.id = 'content'
-document.body.appendChild(app)
+document.html.appendChild(app)
 
 ReactDOM.render(<Content />, app)
 
@@ -27,4 +27,8 @@ try {
     insertScript.setAttribute('type', 'text/javascript')
     insertScript.src = window.chrome.extension.getURL('insert.js')
     document.body.appendChild(insertScript)
+    console.log("???")
 } catch (err) {}
+
+//browser.runtime.onMessage.addListener()
+//browser.runtime.sendMessage("sfdsfs")

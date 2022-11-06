@@ -52,6 +52,7 @@
     "<all_urls>"
   ],
   "web_accessible_resources": [
-    "insert.js"
+    //"insert.js",
+    "popup.html"
   ] //指定资源路径
 }

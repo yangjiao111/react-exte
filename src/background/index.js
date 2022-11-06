@@ -47,4 +47,13 @@ chrome.runtime.onInstalled.addListener(function () {
           actions: [new window.chrome.declarativeContent.ShowPageAction()]
   }])
   })
+});
+browser.runtime.onMessage.addListener((request) => {
+  if (request.open) {
+    return new Promise(resolve => {
+      chrome.browserAction.getPopup({}, (popup) => {
+        return resolve(popup)
+      })
+    })
+  }
 })
